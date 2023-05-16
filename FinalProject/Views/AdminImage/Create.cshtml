@@ -1,0 +1,35 @@
+﻿@model ImageFormModel
+
+<h1>AdminCreate</h1>
+
+<div class="container">
+    <form asp-controller="AdminImage" asp-action="Create" method="post">
+        @Html.AntiForgeryToken()
+        <div class="mb-3">
+            <strong>Title:</strong>
+            <input asp-for="ImagesClass.Title" class="d-block w-100" />
+            <span asp-validation-for="ImagesClass.Title" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <strong>Description:</strong>
+            <input asp-for="ImagesClass.Description" class="d-block w-100" />
+            <span asp-validation-for="ImagesClass.Description" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <strong>URL Immagine:</strong>
+            <input asp-for="ImagesClass.Img" class="d-block w-100" />
+        </div>
+        <div>
+            <strong>Category:</strong>
+            <select asp-for="ImagesClass.Category" asp-items="@(new SelectList(Model.Categories, "Id", "Name"))"></select>
+        </div>
+        @*<div>
+            <input asp-for="ImagesClass.Visible == false" type="checkbox" id="@Model.ImagesClass.Id" value="@Model.ImagesClass.Id" />
+            <label for="@Model.ImagesClass.Id">Private</label>
+        </div>*@
+        <div class="text-end">
+            <input type="submit" class="btn btn-small btn-info" value="Post">
+        </div>
+        
+    </form>
+</div>
