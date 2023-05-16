@@ -29,10 +29,11 @@
                 </div>
             }
         </div>
-        @*<div>
-            <input asp-for="ImagesClass.Visible == false" type="checkbox" id="@Model.ImagesClass.Id" value="@Model.ImagesClass.Id" />
+        <div class="mt-4">
+            <!--Private-->
+            <input type="checkbox" id="@Model.ImagesClass.Id" name="PrivateText" value="@Model.PrivateText" />
             <label for="@Model.ImagesClass.Id">Private</label>
-        </div>*@
+        </div>
         <div class="text-end">
             <input type="submit" class="btn btn-small btn-info" value="Post">
         </div>

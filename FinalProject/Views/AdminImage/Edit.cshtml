@@ -25,10 +25,15 @@
             @foreach (var category in Model.Categories)
             {
                 <div>
-                    <input id="@category.Value" type="checkbox" name="SelectedCategories" value="@category.Value" checked="@Model.SelectedCategories.Contains(category.Value)" />
+                    <input type="checkbox" id="@category.Value" name="SelectedCategories" value="@category.Value" checked="@Model.SelectedCategories.Contains(category.Value)" />
                     <label for="@category.Value">@category.Text</label>
                 </div>
             }
+        </div>
+        <div class="mt-4">
+            <!--Private-->
+            <input type="checkbox" id="@Model.ImagesClass.Id" name="PrivateText" value="@Model.PrivateText" checked="@Model.ImagesClass.IsPrivate"/>
+            <label for="@Model.ImagesClass.Id">Private</label>
         </div>
         @*<div>
         <input asp-for="ImagesClass.Visible == false" type="checkbox" id="@Model.ImagesClass.Id" value="@Model.ImagesClass.Id" />

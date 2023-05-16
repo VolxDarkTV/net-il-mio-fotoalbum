@@ -12,7 +12,7 @@
             <ul>
                 @foreach(var y in Model)
                 {
-                    @if (!y.Visible)
+                    @if (!y.IsPrivate)
                     {
                         <li class="d-flex gap-3">
                             <div>

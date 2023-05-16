@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FinalProject.Models
 {
@@ -16,9 +17,7 @@ namespace FinalProject.Models
         [Required(ErrorMessage = "L'immagine è obbligatoria ;)")]
         public string Img { get; set; }
 
-        [DefaultValue(true)]
-        public bool Visible { get; set; }
-
+        public bool IsPrivate { get; set; }
 
         public List<Category>? Category { get; set; }
 
@@ -28,12 +27,12 @@ namespace FinalProject.Models
         {
 
         }
-        public ImageClass(string title, string description, string img, bool visible)
+        public ImageClass(string title, string description, string img, bool isPrivate)
         {
             Title = title;
             Description = description;
             Img = img;
-            Visible = visible;
+            IsPrivate = isPrivate;
         }
     }
 }

@@ -93,7 +93,7 @@ namespace FinalProject.Controllers
             imageClassToCreate.Title = data.ImagesClass.Title;
             imageClassToCreate.Description = data.ImagesClass.Description;
             imageClassToCreate.Img = data.ImagesClass.Img;
-            imageClassToCreate.Visible = data.ImagesClass.Visible;
+            imageClassToCreate.IsPrivate = data.IsImagePrivate;
 
             if(data.SelectedCategories != null)
             {
@@ -187,7 +187,7 @@ namespace FinalProject.Controllers
                 imageEdit.Title = data.ImagesClass.Title;
                 imageEdit.Description = data.ImagesClass.Description;
                 imageEdit.Img = data.ImagesClass.Img;
-                imageEdit.Visible = data.ImagesClass.Visible;
+                imageEdit.IsPrivate = data.IsImagePrivate;
 
                 if(data.SelectedCategories != null)
                 {
