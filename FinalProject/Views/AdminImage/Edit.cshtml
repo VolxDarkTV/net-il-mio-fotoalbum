@@ -1,9 +1,10 @@
 ﻿@model ImageFormModel
 
-<h1>AdminCreate</h1>
+<h1>Edit</h1>
+
 
 <div class="container">
-    <form asp-controller="AdminImage" asp-action="Create" method="post">
+    <form asp-controller="AdminImage" asp-action="Edit" method="post">
         @Html.AntiForgeryToken()
         <div class="mb-3">
             <strong>Title:</strong>
@@ -24,18 +25,18 @@
             @foreach (var category in Model.Categories)
             {
                 <div>
-                    <input id="@category.Value" type="checkbox" name="SelectedCategories" value="@category.Value" />
+                    <input id="@category.Value" type="checkbox" name="SelectedCategories" value="@category.Value" checked="@Model.SelectedCategories.Contains(category.Value)" />
                     <label for="@category.Value">@category.Text</label>
                 </div>
             }
         </div>
         @*<div>
-            <input asp-for="ImagesClass.Visible == false" type="checkbox" id="@Model.ImagesClass.Id" value="@Model.ImagesClass.Id" />
-            <label for="@Model.ImagesClass.Id">Private</label>
+        <input asp-for="ImagesClass.Visible == false" type="checkbox" id="@Model.ImagesClass.Id" value="@Model.ImagesClass.Id" />
+        <label for="@Model.ImagesClass.Id">Private</label>
         </div>*@
         <div class="text-end">
             <input type="submit" class="btn btn-small btn-info" value="Post">
         </div>
-        
+
     </form>
 </div>

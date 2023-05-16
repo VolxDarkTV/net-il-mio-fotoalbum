@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(ImageContext))]
-    [Migration("20230516080630_CreateIdentityTablesAuth2")]
-    partial class CreateIdentityTablesAuth2
+    [Migration("20230516101852_Start")]
+    partial class Start
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,21 @@ namespace FinalProject.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("CategoryImageClass", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ImagesClassId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CategoryId", "ImagesClassId");
+
+                    b.HasIndex("ImagesClassId");
+
+                    b.ToTable("CategoryImageClass");
+                });
 
             modelBuilder.Entity("FinalProject.Models.Category", b =>
                 {
@@ -50,9 +65,6 @@ namespace FinalProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -68,8 +80,6 @@ namespace FinalProject.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
 
                     b.ToTable("ImagesClass");
                 });
@@ -272,13 +282,19 @@ namespace FinalProject.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("FinalProject.Models.ImageClass", b =>
+            modelBuilder.Entity("CategoryImageClass", b =>
                 {
-                    b.HasOne("FinalProject.Models.Category", "Category")
-                        .WithMany("ImagesClass")
-                        .HasForeignKey("CategoryId");
+                    b.HasOne("FinalProject.Models.Category", null)
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Category");
+                    b.HasOne("FinalProject.Models.ImageClass", null)
+                        .WithMany()
+                        .HasForeignKey("ImagesClassId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -330,11 +346,6 @@ namespace FinalProject.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("FinalProject.Models.Category", b =>
-                {
-                    b.Navigation("ImagesClass");
                 });
 #pragma warning restore 612, 618
         }

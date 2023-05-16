@@ -20,7 +20,7 @@ namespace FinalProject.Models
         public bool Visible { get; set; }
 
 
-        public Category? Category { get; set; }
+        public List<Category>? Category { get; set; }
 
 
 

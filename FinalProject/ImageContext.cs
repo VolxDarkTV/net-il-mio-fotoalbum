@@ -13,7 +13,7 @@ namespace FinalProject
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=FinalProjectDB;Integrated Security=True;TrustServerCertificate=true");
+            optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=FinalProjectDBMulti;Integrated Security=True;TrustServerCertificate=true");
         }
     }
 }
