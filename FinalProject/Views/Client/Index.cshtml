@@ -1,0 +1,23 @@
+﻿
+<h1>Client Page</h1>
+
+<section class="container border border-2 border-danger py-3 px-0">
+    <div class="border border-2 border-primary">
+
+        <div class="btn btn-primary py-2 px-2">
+            <a class="text-light text-decoration-none" asp-area="" asp-controller="AdminImage" asp-action="Create">Post Image</a>
+        </div>
+
+        <h2>Visualize Images</h2>
+        <ul id="y-posts">
+                
+        </ul>
+        
+        <div id="no-posts" class="d-none">No Images in DB</div>
+
+    </div>
+</section>
+
+@section Scripts {
+    <script type="text/javascript" src="~/js/Client/index.js"></script>
+}
