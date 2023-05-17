@@ -18,7 +18,10 @@ namespace FinalProject.Controllers.API
 
             if(search != null)
             {
-                image = image.Where(p => p.Title.ToLower().Contains(search.ToLower())).ToList();
+                //image = image.Where(p => p.Title.ToLower().Contains(search.ToLower())).ToList();
+                image = image.Where(p => p.Title.ToLower().IndexOf(search.ToLower() ) >= 0).ToList();
+                                                                                 //^ si potrebbe aggiungere: , StringComparison.OrdinalIgnoreCase
+
             }
 
             return Ok(image);

@@ -1,7 +1,11 @@
 ﻿loadPosts();
 
-function loadPosts() {
-    axios.get('/api/ClientApi')
+function loadPosts(searchKey) {
+    axios.get('/api/ClientApi', {
+        params: {
+            search: searchKey
+        }
+    })
         .then((res) => {
             console.log('richiesta OK', res)
             if (res.data.length == 0) {
@@ -15,6 +19,7 @@ function loadPosts() {
                 res.data.forEach(post => {
                     console.log('Post', post);
                     let descriptionHTML = '';
+                    /* Description Control(null) */
                     if (post.description != null) {
                         descriptionHTML = `<span><span class="fw-bold">Description: </span>${post.description}</span>`
                     }
