@@ -12,10 +12,17 @@ namespace FinalProject.Controllers
     {
         [Authorize(Roles = "ADMIN")]
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(string? search)
         {
             using ImageContext db = new ImageContext();
             List<ImageClass> image = db.ImagesClass.ToList<ImageClass>();
+
+            if (search != null)
+            {
+                //image = image.Where(p => p.Title.ToLower().Contains(search.ToLower())).ToList();
+                image = image.Where(p => p.Title.ToLower().IndexOf(search.ToLower() ) >= 0).ToList();
+                                                                                 //^ si potrebbe aggiungere: , StringComparison.OrdinalIgnoreCase
+            }
 
             return View(image);
         }

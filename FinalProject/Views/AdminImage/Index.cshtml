@@ -3,6 +3,12 @@
 
 <section class="container border border-2 border-danger py-3 px-0">
     <div class="border border-2 border-primary">
+        <div>
+            <form asp-controller="AdminImage" asp-action="Index" method="get">
+                <input type="text" id="search" class="form-control" name="search" placeholder="Search Title" />
+                <input type="submit" class="btn btn-small btn-info" value="Search">
+            </form>
+        </div>
         <div class="btn btn-primary py-2 px-2">
             <a class="text-light text-decoration-none" asp-area="" asp-controller="AdminImage" asp-action="Create">Post Image</a>
         </div>
