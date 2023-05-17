@@ -1,6 +1,7 @@
 ﻿using FinalProject.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace FinalProject.Controllers.API
@@ -27,5 +28,15 @@ namespace FinalProject.Controllers.API
             return Ok(image);
         }
 
+        [HttpGet ("{id}")]
+        public IActionResult Details(int id)
+        {
+            using ImageContext db = new ImageContext();
+            ImageClass image = db.ImagesClass
+                .Include(image => image.Category)
+                .FirstOrDefault(x => x.Id == id);
+
+            return Ok(image);
+        }
     }
 }

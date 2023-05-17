@@ -3,12 +3,20 @@
 
 <section class="container border border-2 border-danger py-3 px-0">
     <div class="border border-2 border-primary">
-        <div>
+        @*<div>
             <input type="text" id="search" class="form-control" placeholder="Search Title" onkeyup="loadPosts(this.value)"/>
-        </div>
-        <div class="btn btn-primary py-2 px-2">
-            <a class="text-light text-decoration-none" asp-area="" asp-controller="AdminImage" asp-action="Create">Post Image</a>
-        </div>
+        </div>*@
+
+
+        @*Search Bar*@
+        <form action="javascript:" class="search-bar">
+            
+            <input id="search" type="search" name="search" pattern=".*\S.*" required placeholder="Search Title" onkeyup="loadPosts(this.value)">
+            <button class="search-btn" type="submit">
+                <span>Search</span>
+            </button>
+            
+        </form>
 
         <h2>Visualize Images</h2>
         <ul id="y-posts" class="d-flex flex-column gap-3">

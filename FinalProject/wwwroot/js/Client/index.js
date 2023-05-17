@@ -33,7 +33,7 @@ function loadPosts(searchKey) {
                             </div>
                         
 
-                            <div class="d-flex flex-column align-items-center justify-content-around gap-3 w-100 border border-1 border-warning">
+                            <div class="d-flex flex-column align-items-center justify-content-around gap-3 w-100 border border-1 border-warning rounded shadow">
                             
                                 <div class="d-flex flex-column">
                                     <span><span class="fw-bold">Title: </span>${post.title}</span>
@@ -42,10 +42,11 @@ function loadPosts(searchKey) {
 
                                 <div class="d-flex gap-3">
                                     <!--Details-->
-                                    <a class="btn btn-dark shadow rounded-pill py-2 px-3" href="/Client/Detail?id=${post.id}">
+                                    <a class="btn btn-dark shadow rounded-pill py-2 px-3" href="Client/Details?id=${post.id}">
                                         <i class="fa-regular fa-eye"></i>
                                     </a>
                                 </div>
+
                             </div>
 
                         </li>
@@ -56,8 +57,4 @@ function loadPosts(searchKey) {
         .catch((res) => {
             console.log('bad NOT', res)
         })
-}
-
-function detailPost(postId) {
-
 }

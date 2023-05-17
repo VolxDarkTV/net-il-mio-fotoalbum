@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using FinalProject;
+using System.Text.Json.Serialization;
+
 namespace FinalProject
 {
     public class Program
@@ -15,6 +17,10 @@ namespace FinalProject
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ImageContext>();
+
+            //Fixed API JSON Cycles
+            builder.Services.AddControllers()
+                .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -41,6 +47,7 @@ namespace FinalProject
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Client}/{action=Index}/{id?}");
+
             app.MapRazorPages();
             app.Run();
         }
