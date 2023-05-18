@@ -1,7 +1,7 @@
 ﻿@model ImageFormModel
 
 <section class="container">
-    <form asp-controller="Message" asp-action="Create" method="post">
+    <form asp-route-id="ImageClass.Id" asp-controller="Message" asp-action="Create" method="post">
         @Html.AntiForgeryToken()
         <div class="mb-3 d-flex flex-column gap-2">
             <strong>Email:</strong>

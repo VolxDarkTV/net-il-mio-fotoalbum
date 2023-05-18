@@ -32,5 +32,9 @@
         </div>
 
     </div>
-
+    <div>
+        @{
+            await Html.RenderPartialAsync("../Message/Index", new ImageFormModel());
+        }
+    </div>
 </section>
