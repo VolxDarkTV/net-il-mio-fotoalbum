@@ -22,5 +22,7 @@ namespace FinalProject.Models
         }
         public List<SelectListItem>? Categories { get; set; }
         public List<string>? SelectedCategories { get; set; }
+
+        public Message Message { get; set; }
     }
 }

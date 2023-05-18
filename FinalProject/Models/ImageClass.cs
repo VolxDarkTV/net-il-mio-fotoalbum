@@ -22,6 +22,9 @@ namespace FinalProject.Models
         public List<Category>? Category { get; set; }
 
 
+        //Message
+        public List<Message> Message { get; set; }
+
 
         public ImageClass()
         {

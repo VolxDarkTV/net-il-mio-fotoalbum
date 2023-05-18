@@ -11,6 +11,8 @@ namespace FinalProject
 
         public DbSet<Category> Category { get; set; }
 
+        public DbSet<Message> Message { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=FinalProjectDBMulti;Integrated Security=True;TrustServerCertificate=true");

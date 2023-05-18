@@ -16,7 +16,7 @@ namespace FinalProject.Controllers
         {
             using ImageContext db = new ImageContext();
             List<ImageClass> image = db.ImagesClass.ToList<ImageClass>();
-
+            
             if (search != null)
             {
                 //image = image.Where(p => p.Title.ToLower().Contains(search.ToLower())).ToList();

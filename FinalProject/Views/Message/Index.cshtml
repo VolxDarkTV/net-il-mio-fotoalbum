@@ -1,0 +1,23 @@
+﻿@model ImageFormModel
+
+<section class="container">
+    <form asp-controller="Message" asp-action="Create" method="post">
+        @Html.AntiForgeryToken()
+        <div class="mb-3 d-flex flex-column gap-2">
+            <strong>Email:</strong>
+            <input type="email" asp-for="Message.Email" class="d-block w-100 form-control" />
+            <span asp-validation-for="Message.Email" class="text-danger"></span>
+        </div>
+        <div class="mb-3 d-flex flex-column gap-2">
+            <strong>Message:</strong>
+            @*<input asp-for="ImagesClass.Description" class="d-block w-100" />*@
+            <textarea asp-for="Message.MessageClient" class="d-block w-100 form-control"></textarea>
+            <span asp-validation-for="Message.MessageClient" class="text-danger"></span>
+        </div>
+        
+        <div class="text-end">
+            <input type="submit" class="btn btn-small btn-info" value="Post">
+        </div>
+
+    </form>
+</section>
